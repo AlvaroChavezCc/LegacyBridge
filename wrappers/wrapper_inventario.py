@@ -3,7 +3,8 @@ import sqlite3
 import os
 
 app = Flask(__name__)
-DB_PATH = os.path.abspath("systems/inventario/legacy_inventory.db")
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DB_PATH = os.path.abspath(os.path.join(BASE_DIR, '../systems/inventario/legacy_inventory.db'))
 
 # Endpoint de salud
 @app.route('/health', methods=['GET'])
