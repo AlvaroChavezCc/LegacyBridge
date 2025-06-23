@@ -50,7 +50,7 @@ def create_button(app, desc):
 
 
 # INICIAR FRAMEWORK
-subproc_js =  subprocess.Popen(['node', './legacybridge-framework/app.js'])
+subproc_js =  subprocess.Popen(['node', '../legacybridge-framework/app.js'])
 
 # TERMINAR SUBPROCESO
 def terminar_subproceso(subproc):
@@ -125,9 +125,9 @@ button_contabilidad.grid(row=1, column=2)
 
 
 # MÓDULOS
-ventas = ModuloSistema("Ventas", ['node', './systems/ventas/index.js'], button_ventas)
-inventario = ModuloSistema("Inventario", ['python', './wrappers/wrapper_inventario.py'], button_inventario)
-contabilidad = ModuloSistema("Contabilidad", ['python', './systems/inventario/legacy_inventory.py'], button_contabilidad)
+ventas = ModuloSistema("Ventas", ['node', '../systems/ventas/index.js'], button_ventas)
+inventario = ModuloSistema("Inventario", ['python', '../wrappers/wrapper_inventario.py'], button_inventario)
+contabilidad = ModuloSistema("Contabilidad", ['python', '../systems/inventario/legacy_inventory.py'], button_contabilidad)
 
 # ASIGNAR COMANDOS A LOS BOTONES
 button_ventas.configure(command=ventas.toggle)

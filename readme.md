@@ -25,7 +25,7 @@ LegacyBridge es un framework en Node.js diseñado para facilitar la integración
 
 ## Requisitos
 
-- Node.js 18+
+- Node.js 22+
 
 - Python 3.8+
 
