@@ -4,11 +4,13 @@ const apiRoutes = require('./routes/api');
 const { loadServices } = require('./core/loader');
 const { startHealthCheck } = require('./core/healthChecker');
 const { setupWebSocketServer } = require('./core/websocket');
+const { startEventListener } = require('./core/eventListener');
 
 app.use(express.json());
 
 loadServices();
 startHealthCheck();
+startEventListener();
 
 app.use('/api', apiRoutes);
 
