@@ -61,4 +61,3 @@ class ModuloSistema:
                self.stderr_thread.join(timeout=1)
           self.stdout_thread = None
           self.stderr_thread = None
-

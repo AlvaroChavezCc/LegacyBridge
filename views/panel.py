@@ -2,13 +2,7 @@ import customtkinter
 import subprocess
 import sys
 import threading
-from customtkinter import (
-     CTkLabel,
-     CTkButton,
-     CTkFrame,
-     CTkTextbox,
-     CTkTabview
-)
+
 from config import (
      LABEL_FONT,
      CHECKER_FONT,
@@ -17,12 +11,19 @@ from config import (
      COLOR_GRIS,
      COLOR_ROJO_VINO
 )
+from customtkinter import (
+     CTkLabel,
+     CTkButton,
+     CTkFrame,
+     CTkTextbox,
+     CTkTabview
+)
 from modulo_sistema import ModuloSistema
-from terminar_subproceso import terminar_subproceso
 from mostrar_consola import steam_to_textbox
+from terminar_subproceso import terminar_subproceso
 
 
-# CREAR BOTONES (PARA NO REPETIR CÓDIGO)
+# CREAR BOTONES
 def create_button(app, desc):
      return CTkButton(
           app,
@@ -58,7 +59,12 @@ customtkinter.set_appearance_mode("light")
 
 
 # VENTANA PRINCIPAL
-frame_data = CTkFrame(app, width=800, height=400, corner_radius=0)
+frame_data = CTkFrame(
+     app,
+     width=800,
+     height=400,
+     corner_radius=0
+)
 frame_data.pack(fill="both", expand=True)
 frame_data.columnconfigure((0,1,2), weight=1)
 frame_data.rowconfigure((0,1,2), weight=1)
@@ -91,7 +97,6 @@ tab_options.grid(row=1, column=0, columnspan=3, pady=20, padx=20, sticky="nsew")
 tab1 = tab_options.add("SERVICIOS")
 tab1.grid_rowconfigure((0,1), weight=1)
 tab1.grid_columnconfigure((0,1,2), weight=1)
-
 tab2 = tab_options.add("CONSOLA")
 
 
@@ -112,7 +117,7 @@ button_ventas.grid(row=1, column=0, padx=0)
 button_inventario = create_button(tab1, "Inventario")
 button_inventario.grid(row=1, column=1)
 
-button_contabilidad = create_button(tab1, "Contabilidad")
+button_contabilidad = create_button(tab1, "3era opción")
 button_contabilidad.grid(row=1, column=2)
 
 
@@ -138,7 +143,7 @@ subproc_js =  subprocess.Popen(
 )
 
 
-# Hilos para leer stdout y stderr del framework
+# HILOS PARA LEER STDOUT Y STDERR DEL FRAMEWORK
 threading.Thread(
      target=steam_to_textbox,
      args=(subproc_js.stdout, textbox_checker, "Fw (stdout): "),

@@ -11,3 +11,4 @@ def append_textbox(textbox, text):
      textbox.insert("end", text)
      textbox.see("end")
      textbox.configure(state="disabled")
+     
