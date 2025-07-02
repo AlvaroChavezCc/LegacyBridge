@@ -105,7 +105,7 @@ CTkLabel(
      tab1,
      text="Seleccione un servicio para iniciar:",
      wraplength=500,
-     font=CHECKER_FONT,
+     font=TITLE_FONT,
      text_color=COLOR_NEGRO
 ).grid(row=0, column=0, columnspan=3)
 

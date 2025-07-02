@@ -1,1 +1,1 @@
-std
+CHECKER_FONT
