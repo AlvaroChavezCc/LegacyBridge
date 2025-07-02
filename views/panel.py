@@ -41,7 +41,7 @@ def create_button(app, desc):
 def on_closing():
      ventas.detener()
      inventario.detener()
-     contabilidad.detener()
+     # contabilidad.detener()
 
      global subproc_js
      subproc_js = terminar_subproceso(subproc_js)
@@ -96,7 +96,7 @@ tab_options.grid(row=1, column=0, columnspan=3, pady=20, padx=20, sticky="nsew")
 
 tab1 = tab_options.add("SERVICIOS")
 tab1.grid_rowconfigure((0,1), weight=1)
-tab1.grid_columnconfigure((0,1,2), weight=1)
+tab1.grid_columnconfigure((0,1), weight=1)
 tab2 = tab_options.add("CONSOLA")
 
 
@@ -117,8 +117,8 @@ button_ventas.grid(row=1, column=0, padx=0)
 button_inventario = create_button(tab1, "Inventario")
 button_inventario.grid(row=1, column=1)
 
-button_contabilidad = create_button(tab1, "3era opción")
-button_contabilidad.grid(row=1, column=2)
+# button_contabilidad = create_button(tab1, "3era opción")
+# button_contabilidad.grid(row=1, column=2)
 
 
 # TEXTBOX PARA MOSTRAR MENSAJES DEL FRAMEWORK Y SUBPROCESOS
@@ -172,18 +172,18 @@ inventario = ModuloSistema(
      textbox_checker
 )
 
-contabilidad = ModuloSistema(
+"""contabilidad = ModuloSistema(
      "Contabilidad",
      ['python', './systems/inventario/legacy_inventory.py'],
      button_contabilidad,
      textbox_checker
-)
+)"""
 
 
 # ASIGNAR COMANDOS A LOS BOTONES
 button_ventas.configure(command=ventas.toggle)
 button_inventario.configure(command=inventario.toggle)
-button_contabilidad.configure(command=contabilidad.toggle)
+# button_contabilidad.configure(command=contabilidad.toggle)
 
 
 # CONTINUAR EJECUTANDO LA APLICACIÓN
