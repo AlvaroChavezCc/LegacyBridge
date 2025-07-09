@@ -1,5 +1,8 @@
 [
   { "name": "ventas", "url": "http://localhost:4000" },
   { "name": "inventario", "url": "http://localhost:6000" },
-  { "name": "contabilidad", "url": "http://localhost:5000" }
+  { "name": "contabilidad", "url": "http://localhost:5000" },
+  { "name": "dementes", "url": "http://localhost:4100" },
+  { "name": "dementes-wrapper", "url": "http://localhost:4200" },
+  { "name": "auth-service", "url": "http://localhost:8080" }
 ]
